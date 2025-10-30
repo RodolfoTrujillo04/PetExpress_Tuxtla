@@ -123,3 +123,61 @@ export default router;
 ## 1️⃣0️⃣ Instalar MySQL2 (opcional)
 npm i mysql2
 
+
+
+
+# 🚀 Cómo subir tu proyecto a GitHub
+
+Sigue estos pasos para subir tu proyecto Node.js a GitHub desde cero.
+
+---
+
+## 1️⃣ Crear un repositorio en GitHub
+
+1. Ve a [GitHub](https://github.com/) y haz login.  
+2. Haz clic en **New repository**.  
+3. Pon un **nombre** (por ejemplo: `ecomarket_online`).  
+4. Opcional: agrega **descripción**.  
+5. Selecciona **Public** o **Private** según tu preferencia.  
+6. No marques “Initialize with README” si ya tienes archivos locales.  
+7. Haz clic en **Create repository**.
+
+---
+
+## 2️⃣ Inicializar Git localmente
+
+En tu proyecto local (terminal):
+
+git init
+
+## 3️⃣ Configurar .gitignore
+node_modules
+.env
+
+## 4️⃣ Agregar archivos al staging
+git add .
+
+## 5️⃣ Hacer un commit inicial
+git commit -m "Primer commit: configuración inicial del proyecto"
+
+
+##6️⃣ Conectar tu repositorio local con GitHub
+git remote add origin https://github.com/TU_USUARIO/NOMBRE_REPOSITORIO.git
+
+## 7️⃣ Subir tu proyecto a GitHub
+git branch -M main  # Cambia el nombre de la rama principal a main
+git push -u origin main
+
+##8️⃣ Verificar en GitHub
+Ve a tu repositorio en GitHub.
+
+Deberías ver todos tus archivos subidos.
+
+Tu proyecto ahora está sincronizado y listo para colaborar.
+
+## 9️⃣ Pasos futuros para actualizar tu proyecto
+Cada vez que hagas cambios:
+
+git add .
+git commit -m "Descripción del cambio"
+git push
