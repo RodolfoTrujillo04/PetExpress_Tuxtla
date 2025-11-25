@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetExpress Tuxtla - Tienda de Mascotas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-paw"></i>
+                <h1>PetExpress Tuxtla</h1>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <!-- Sección de Hero/Bienvenida -->
+            <section id="welcomeSection" class="welcome-section">
+                <div class="welcome-content">
+                    <h2>Bienvenido a PetExpress Tuxtla</h2>
+                    <p>La mejor tienda para tus mascotas</p>
+                    <div class="welcome-buttons">
+                        <button class="btn btn-primary" id="loginBtn">Iniciar Sesión</button>
+                        <button class="btn btn-secondary" id="registerBtn">Registrarse</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formulario de Login -->
+            <section id="loginSection" class="auth-section hidden">
+                <div class="auth-card">
+                    <h2>Iniciar Sesión</h2>
+                    <form id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="loginEmail">Email:</label>
+                            <input type="email" id="loginEmail" name="email" required>
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Contraseña:</label>
+                            <input type="password" id="loginPassword" name="password" required>
+                            <i class="fas fa-lock input-icon"></i>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-full" id="submitLoginBtn">
+                            <span class="btn-text">Iniciar Sesión</span>
+                            <div class="btn-loading hidden">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                Iniciando...
+                            </div>
+                        </button>
+                    </form>
+                    <div class="auth-links">
+                        <p>¿No tienes cuenta? <a href="#" id="goToRegisterFromLogin">Regístrate aquí</a></p>
+                        <button class="btn btn-link" id="backToWelcomeFromLogin">Volver al inicio</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formulario de Registro -->
+            <section id="registerSection" class="auth-section hidden">
+                <div class="auth-card">
+                    <h2>Crear Cuenta</h2>
+                    <form id="registerForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="registerEmail">Email:</label>
+                            <input type="email" id="registerEmail" name="email" required>
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Contraseña:</label>
+                            <input type="password" id="registerPassword" name="password" required minlength="6">
+                            <i class="fas fa-lock input-icon"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmar Contraseña:</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            <i class="fas fa-lock input-icon"></i>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-full" id="submitRegisterBtn">
+                            <span class="btn-text">Registrarse</span>
+                            <div class="btn-loading hidden">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                Registrando...
+                            </div>
+                        </button>
+                    </form>
+                    <div class="auth-links">
+                        <p>¿Ya tienes cuenta? <a href="#" id="goToLoginFromRegister">Inicia sesión aquí</a></p>
+                        <button class="btn btn-link" id="backToWelcomeFromRegister">Volver al inicio</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Notificaciones -->
+        <div id="notification" class="notification hidden">
+            <span id="notificationMessage"></span>
+            <button id="closeNotificationBtn" class="notification-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
