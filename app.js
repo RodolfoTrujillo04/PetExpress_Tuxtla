@@ -8,8 +8,7 @@ require('dotenv').config();
 const { testConnection } = require('./config/database');
 
 // Importar rutas
-const clientesRoutes = require('./routes/clientes');
-const productosRoutes = require('./routes/productos');
+
 const authRoutes = require('./routes/auth');
 
 const app = express();
@@ -56,8 +55,7 @@ app.get('/health', async (req, res) => {
 });
 
 // Rutas de la API
-app.use('/api/clientes', clientesRoutes);
-app.use('/api/productos', productosRoutes);
+
 app.use('/api/auth', authRoutes);
 
 // Manejo de rutas no encontradas
