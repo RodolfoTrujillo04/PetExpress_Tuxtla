@@ -8,8 +8,7 @@ require('dotenv').config();
 const { testConnection } = require('./config/database');
 
 // Importar rutas
-const clientesRoutes = require('./routes/clientes');
-const productosRoutes = require('./routes/productos');
+
 const authRoutes = require('./routes/auth');
 
 const app = express();
@@ -38,9 +37,19 @@ app.use(express.urlencoded({ extended: true }));
 // Servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Ruta básica - ahora sirve el HTML
+// Ruta principal que sirve login/index.html
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'login', 'index.html'));
+});
+
+// También puedes agregar esta ruta por si acceden directamente a /login
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'login', 'index.html'));
+});
+
+// Para manejar rutas no encontradas (opcional)
+app.get('*', (req, res) => {
+    res.status(404).send('Página no encontrada');
 });
 
 // Health check (mantener para API)
@@ -56,8 +65,7 @@ app.get('/health', async (req, res) => {
 });
 
 // Rutas de la API
-app.use('/api/clientes', clientesRoutes);
-app.use('/api/productos', productosRoutes);
+
 app.use('/api/auth', authRoutes);
 
 // Manejo de rutas no encontradas

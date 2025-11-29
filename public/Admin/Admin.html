@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetExpress - Panel de Administración</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>PetExpress Admin</h1>
+            <div class="user-info">
+                <span id="userName">Administrador</span>
+                <button onclick="Auth.logout()" class="btn-logout">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <nav class="admin-sidebar">
+            <ul>
+                <li><a href="#" onclick="showSection('dashboard')" class="active">Dashboard</a></li>
+                <li><a href="#" onclick="showSection('categorias')">Categorías</a></li>
+                <li><a href="#" onclick="showSection('productos')">Productos</a></li>
+                <li><a href="#" onclick="showSection('clientes')">Clientes</a></li>
+                <li><a href="#" onclick="showSection('mascotas')">Mascotas</a></li>
+                <li><a href="#" onclick="showSection('proveedores')">Proveedores</a></li>
+                <li><a href="#" onclick="showSection('servicios')">Servicios</a></li>
+                <li><a href="#" onclick="showSection('pedidos')">Pedidos</a></li>
+            </ul>
+        </nav>
+
+        <main class="admin-main">
+            <!-- Dashboard -->
+            <section id="dashboard-section" class="content-section active">
+                <h2>Dashboard</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Clientes</h3>
+                        <span id="totalClientes">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Productos</h3>
+                        <span id="totalProductos">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pedidos Pendientes</h3>
+                        <span id="pedidosPendientes">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Ingresos Mensuales</h3>
+                        <span id="ingresosMensuales">$0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Categorías -->
+            <section id="categorias-section" class="content-section">
+                <div class="section-header">
+                    <h2>Gestión de Categorías</h2>
+                    <button onclick="openCategoryModal()" class="btn-primary">Nueva Categoría</button>
+                </div>
+                <div class="table-container">
+                    <table id="categoriasTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="categoriasTableBody">
+                            <!-- Datos cargados dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Otras secciones se implementarán de manera similar -->
+            <section id="productos-section" class="content-section">
+                <h2>Productos</h2>
+                <!-- Contenido de productos -->
+            </section>
+
+            <section id="clientes-section" class="content-section">
+                <h2>Clientes</h2>
+                <!-- Contenido de clientes -->
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Modal para Categorías -->
+    <div id="categoryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCategoryModal()">&times;</span>
+            <h3 id="modalCategoryTitle">Nueva Categoría</h3>
+            <form id="categoryForm">
+                <input type="hidden" id="categoryId">
+                <div class="form-group">
+                    <label for="categoryName">Nombre:</label>
+                    <input type="text" id="categoryName" required>
+                </div>
+                <div class="form-group">
+                    <label for="categoryDescription">Descripción:</label>
+                    <textarea id="categoryDescription" rows="4"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Guardar</button>
+                    <button type="button" onclick="closeCategoryModal()" class="btn-secondary">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/admin.js"></script>
+</body>
+</html>
